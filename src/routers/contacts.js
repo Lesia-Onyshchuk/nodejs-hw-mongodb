@@ -23,4 +23,7 @@ export const patchContactRouter = () =>
   router.patch('/contacts/:contactId', ctrlController(patchContactController));
 
 export const deleteContactRouter = () =>
-  router.delete('contacts/:contactId', ctrlController(deleteContactController));
+  router.delete(
+    '/contacts/:contactId',
+    ctrlController(deleteContactController),
+  );
