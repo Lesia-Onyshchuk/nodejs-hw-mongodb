@@ -4,6 +4,7 @@ import {
   getContactByIdController,
   createContactController,
   patchContactController,
+  deleteContactController,
 } from '../controllers/contacts.js';
 // import { notFoundHandler } from '../middlewares/notFoundHandler.js';
 // import { errorHandler } from '../middlewares/errorHandler.js';
@@ -27,3 +28,6 @@ export const postContactRouter = () =>
 
 export const patchContactRouter = () =>
   router.patch('/contacts/:contactId', ctrlController(patchContactController));
+
+export const deleteContactRouter = () =>
+  router.delete('contacts/:contactId', ctrlController(deleteContactController));

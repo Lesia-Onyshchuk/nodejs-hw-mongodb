@@ -25,3 +25,8 @@ export const updateContact = async (contactId, payload) => {
   }
   return { contact: contact.value, isNew: Boolean(contact ? 201 : 200) };
 };
+
+export const deleteContact = async (contactId) => {
+  const contact = await ContactsCollection.findOneAndDelete({ _id: contactId });
+  return contact;
+};
