@@ -14,3 +14,14 @@ export const createContact = async (payload) => {
   const contact = await ContactsCollection.create(payload);
   return contact;
 };
+
+export const updateContact = async (contactId, payload) => {
+  const contact = await ContactsCollection.findOneAndUpdate(
+    { _id: contactId },
+    payload,
+  );
+  if (!contact || !contact.value) {
+    return null;
+  }
+  return { contact: contact.value, isNew: Boolean(contact ? 201 : 200) };
+};
