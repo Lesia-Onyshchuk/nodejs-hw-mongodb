@@ -3,9 +3,10 @@ import {
   getAllContactsController,
   getContactByIdController,
   createContactController,
+  patchContactController,
 } from '../controllers/contacts.js';
-import { notFoundHandler } from '../middlewares/notFoundHandler.js';
-import { errorHandler } from '../middlewares/errorHandler.js';
+// import { notFoundHandler } from '../middlewares/notFoundHandler.js';
+// import { errorHandler } from '../middlewares/errorHandler.js';
 import { ctrlController } from '../utils/ctrlWrapper.js';
 
 const router = Router();
@@ -23,3 +24,6 @@ export const getContactByIdRouter = () =>
 
 export const postContactRouter = () =>
   router.post('/contacts', ctrlController(createContactController));
+
+export const patchContactRouter = () =>
+  router.patch('/contacts/:contactId', ctrlController(patchContactController));
