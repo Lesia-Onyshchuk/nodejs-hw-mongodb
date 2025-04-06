@@ -3,11 +3,11 @@ import pino from 'pino-http';
 import cors from 'cors';
 import { getEnvVar } from './utils/getEnvVar.js';
 import {
-  errorRouter,
   getAllContactsRouter,
   getContactByIdRouter,
-  notFoundRouter,
 } from './routers/contacts.js';
+import { notFoundHandler } from './middlewares/notFoundHandler.js';
+import { errorHandler } from './middlewares/errorHandler.js';
 
 const PORT = Number(getEnvVar('PORT', '3000'));
 
@@ -30,9 +30,9 @@ export const setupServer = () => {
 
   app.use(getContactByIdRouter);
 
-  app.use(notFoundRouter);
+  app.use(notFoundHandler);
 
-  app.use(errorRouter);
+  app.use(errorHandler);
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
