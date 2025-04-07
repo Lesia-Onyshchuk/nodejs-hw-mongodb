@@ -2,10 +2,7 @@ import express from 'express';
 import pino from 'pino-http';
 import cors from 'cors';
 import { getEnvVar } from './utils/getEnvVar.js';
-import {
-  getAllContactsRouter,
-  getContactByIdRouter,
-} from './routers/contacts.js';
+import router from './routers/contacts.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 
@@ -26,11 +23,9 @@ export const setupServer = () => {
     }),
   );
 
-  app.use(getAllContactsRouter);
+  app.use(router);
 
-  app.use(getContactByIdRouter);
-
-  app.use(notFoundHandler);
+  app.use('*', notFoundHandler);
 
   app.use(errorHandler);
 
