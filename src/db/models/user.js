@@ -5,6 +5,7 @@ const usersShema = new Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    userId: { type: String },
   },
   { timestamps: true, versionKey: false },
 );
