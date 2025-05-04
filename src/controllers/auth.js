@@ -1,3 +1,4 @@
+import createHttpError from 'http-errors';
 import { ONE_MONTH } from '../constants/auth.js';
 import {
   loginUser,
