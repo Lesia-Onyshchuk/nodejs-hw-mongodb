@@ -1,3 +1,5 @@
+import path from 'node:path';
+
 export const FIFTEEN_MINUTES = 15 * 60 * 1000;
 export const ONE_MONTH = 30 * 24 * 60 * 60 * 1000;
 
@@ -8,3 +10,5 @@ export const SMTP = {
   SMTP_PASSWORD: 'SMTP_PASSWORD',
   SMTP_FROM: 'SMTP_FROM',
 };
+
+export const TEMPLATES_DIR = path.join(process.cwd(), 'src', 'templates');
