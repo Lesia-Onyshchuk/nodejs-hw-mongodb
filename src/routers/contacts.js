@@ -26,15 +26,15 @@ router.get('/:contactId', isValidId, ctrlController(getContactByIdController));
 
 router.post(
   '/',
-  validateBody(createContactSchema),
   upload.single('photo'),
+  validateBody(createContactSchema),
   ctrlController(createContactController),
 );
 
 router.patch(
   '/:contactId',
-  isValidId,
   upload.single('photo'),
+  isValidId,
   validateBody(updateContactSchema),
   ctrlController(patchContactController),
 );
