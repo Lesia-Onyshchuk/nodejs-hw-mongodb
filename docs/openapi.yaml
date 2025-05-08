@@ -9,6 +9,8 @@ info:
 tags:
   - name: Contacts
     description: Operations about contacts.
+  - name: Auth
+    description: Auth operations.
 servers:
   - url: http://localhost:3000
   - url: https://nodejs-hw-mongodb-q8lz.onrender.com
@@ -25,6 +27,15 @@ paths:
       $ref: ../swagger/paths/contacts/{id}/patch.yaml
     delete:
       $ref: ../swagger/paths/contacts/{id}/delete.yaml
+  /auth/register:
+    post:
+      $ref: ../swagger/paths/auth/register/post.yaml
+  /auth/login:
+    post:
+      $ref: ../swagger/paths/auth/login/post.yaml
+  /auth/logout:
+    post:
+      $ref: ../swagger/paths/auth/logout/post.yaml
 components:
   securitySchemes:
     bearerAuth:
