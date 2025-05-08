@@ -43,4 +43,5 @@ properties:
   photo:
     description: "URL to contact's photo"
     type: string
+    format: binary
     example: 'https://res.cloudinary.com/dne9sb0jh/image/upload/v1746533077/q5h7zsknzdoizpagls.jpg'
